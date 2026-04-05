@@ -17,7 +17,7 @@ def make_stereo(freq, duration_ms, wave_type="triangle", volume=0.8, bit_depth=8
         bit_depth: 位深 (8 复古，16 清晰)
         sample_rate: 采样率
     """
-    # 1. 严格类型防护
+    volume *= 0.2
     freq = float(freq)
     duration_ms = float(duration_ms)
     volume = float(np.clip(volume, 0.0, 1.0))  # 确保音量在合法范围
@@ -68,10 +68,6 @@ def make_stereo(freq, duration_ms, wave_type="triangle", volume=0.8, bit_depth=8
         wave = np.random.uniform(-1, 1, n_samples) * 0.5
     else:
         raise ValueError(f"不支持的 wave_type: '{wave_type}'。可选: square, triangle, noise, kick, snare, hihat")
-
-    # ==========================================
-    # 【关键修复】音量调节移至位深压缩之前
-    # ==========================================
     wave *= volume
     
     # 安全限幅 (防止音量过大导致后续裁剪失真)

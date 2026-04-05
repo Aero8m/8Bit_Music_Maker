@@ -328,7 +328,7 @@ call sax_solo_drunk
 2 1
 0.5 1
 
-1 e=noise
+0.5 e=noise
 1 0
 """,
 "drunk":"""
