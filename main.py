@@ -262,7 +262,7 @@ tracks = {}
 track_threads = []
 tracks_start_flag = {}
 start_flag = False
-print(musicData.get("TRACK_VOL"))
+print(musicData.get("INFO"))
 if "entry" not in txt_tracks.keys():
     print("未找到entry轨道！请设置entry轨道！")
     exit()
